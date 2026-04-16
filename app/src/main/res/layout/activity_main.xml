@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#EEF2FF"> <!-- Fond Baby Blue très léger -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- En-tête -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:text="⚙"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:background="#F5F3FF"
+                android:textColor="#7C3AED"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JNI Interface"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#4338CA"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Communication Java ↔ C++ via NDK"
+                    android:textSize="15sp"
+                    android:textColor="#6366F1"
+                    android:fontFamily="sans-serif-light"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Carte 1 : Message natif -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FONCTION 1 — MESSAGE NATIF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#737FB8"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvHello"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Chargement..."
+                android:textSize="20sp"
+                android:textColor="#1E40AF"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="getNativeMessage()  →  jstring"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#2563EB"
+                android:background="#DBEAFE"
+                android:fontFamily="monospace"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"/>
+        </LinearLayout>
+
+        <!-- Cartes 2 et 4 côte à côte -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- Carte 2 : Factoriel -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="16dp"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FACTORIEL"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#737FB8"
+                    android:fontFamily="sans-serif-black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvFact"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="—"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E40AF"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="computeProduct()"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#6D28D9"
+                    android:background="#F3E8FF"
+                    android:fontFamily="monospace"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"/>
+            </LinearLayout>
+
+            <!-- Carte 4 : Somme tableau -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="16dp"
+                android:layout_marginStart="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOMME TABLEAU"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#737FB8"
+                    android:fontFamily="sans-serif-black"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvArrayData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textColor="#4338CA"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvArray"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="—"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E40AF"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="calculateSum()"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#2563EB"
+                    android:background="#DBEAFE"
+                    android:fontFamily="monospace"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Carte 3 : Inversion de texte -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FONCTION 3 — INVERSION DE TEXTE"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#737FB8"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/tvReverse"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="—"
+                android:textSize="20sp"
+                android:textColor="#1E40AF"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingMultiplier="1.2"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="flipText()  →  GetStringUTFChars"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#6D28D9"
+                android:background="#F3E8FF"
+                android:fontFamily="monospace"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
