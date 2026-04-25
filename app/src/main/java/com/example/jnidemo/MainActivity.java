@@ -1,13 +1,16 @@
 package com.example.jnidemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Méthodes natives
+    // 🔥 Détection de Debugger / Menace
+    public native boolean isDebugDetected();
+
     public native String getNativeMessage();
     public native int computeProduct(int n);
     public native String flipText(String txt);
@@ -22,46 +25,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView txtStatus = findViewById(R.id.tvStatus);
         TextView txtHello = findViewById(R.id.tvHello);
         TextView txtFact = findViewById(R.id.tvFact);
         TextView txtReverse = findViewById(R.id.tvReverse);
         TextView txtArrayData = findViewById(R.id.tvArrayData);
         TextView txtArray = findViewById(R.id.tvArray);
 
-        // 1. Message natif
-        txtHello.setText(getNativeMessage());
+        // 🔍 Exécution du contrôle de sécurité natif
+        boolean danger = isDebugDetected();
 
-        // 2. Factoriel
-        int number = 5;
-        int factResult = computeProduct(number);
-        if (factResult >= 0) {
-            txtFact.setText(number + "! = " + factResult);
-        } else if (factResult == -1) {
-            txtFact.setText("Erreur : valeur négative");
+        if (danger) {
+            // Statut visuel d'alerte
+            txtStatus.setText("⚠️ ENVIRONNEMENT SUSPECT DÉTECTÉ");
+            txtStatus.setTextColor(Color.RED);
+
+            // Désactivation des fonctions (Blocage logique)
+            txtHello.setText("Accès refusé");
+            txtFact.setText("BLOQUÉ");
+            txtReverse.setText("Fonction sécurisée désactivée");
+            txtArrayData.setText("—");
+            txtArray.setText("🔒");
+            
+            return; // Arrêt de l'exécution pour protéger les parties sensibles
         } else {
-            txtFact.setText("Erreur : dépassement");
-        }
+            // Statut visuel sécurisé
+            txtStatus.setText("✔️ ENVIRONNEMENT SÉCURISÉ");
+            txtStatus.setTextColor(Color.parseColor("#2E7D32"));
+            
+            // Exécution normale des fonctions natives
+            txtHello.setText(getNativeMessage());
 
-        // 3. Inversion de texte
-        String originalText = "Asma Bensassi Nour";
-        String reversedText = flipText(originalText);
-        txtReverse.setText(
-            "Original : " + originalText +
-            "\nInversé  : " + reversedText
-        );
+            int number = 5;
+            int factResult = computeProduct(number);
+            if (factResult >= 0) {
+                txtFact.setText(number + "! = " + factResult);
+            } else {
+                txtFact.setText("Erreur calcul");
+            }
 
-        // 4. Somme tableau
-        int[] values = {53, 104, 150, 200};
-        int sumResult = calculateSum(values);
-        
-        // Affichage des données d'entrée en petite taille en haut
-        txtArrayData.setText("Entrée: " + Arrays.toString(values));
-        
-        if (sumResult >= 0) {
-            // Affichage de la somme en grand au centre
-            txtArray.setText("Somme = " + sumResult);
-        } else {
-            txtArray.setText("Erreur (code " + sumResult + ")");
+            String originalText = "Asma Bensassi Nour";
+            txtReverse.setText("Original : " + originalText + "\nInversé  : " + flipText(originalText));
+
+            int[] values = {53, 104, 150, 200};
+            txtArrayData.setText("Entrée: " + Arrays.toString(values));
+            txtArray.setText("Somme = " + calculateSum(values));
         }
     }
 }
