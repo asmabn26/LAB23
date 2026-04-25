@@ -1,14 +1,21 @@
-# 📱 JNIDemo – Android JNI Project
+# 📱 LAB 23 – JNI + Protection Anti-Debug Native
 
 ## 📌 Description
 
-Ce projet Android démontre l’utilisation de **JNI (Java Native Interface)** pour faire communiquer une application Java avec du code natif en **C++**.
+Ce projet est une extension d’une application Android utilisant **JNI (Java Native Interface)**.
+L’objectif est d’ajouter une **couche de sécurité native en C++** afin de détecter des environnements suspects comme :
 
-L’objectif est de comprendre comment intégrer le **NDK**, utiliser **CMake**, et échanger des données entre Java et C++ dans une application Android.
+* la présence d’un debugger
+* le chargement de bibliothèques d’instrumentation (ex: Frida, GDB)
 
+L’application adapte son comportement en fonction de l’état de sécurité détecté.
 
 ## Demo
 
 
-https://github.com/user-attachments/assets/4116d4ae-caa5-464c-8a0c-7632298b517e
+https://github.com/user-attachments/assets/8abc90eb-6cec-46ad-8895-9631d6f61851
+
+
+
+
 
